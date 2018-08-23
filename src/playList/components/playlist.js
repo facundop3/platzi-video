@@ -1,5 +1,6 @@
 import React from 'react'
 import Media from './media'
+import Play from './../../icons/components/play'
 
 function Playlist (props) {
     const playlist = props.data.categories[0].playlist
@@ -7,10 +8,13 @@ function Playlist (props) {
     return (
       <div>
         Functional component 💁🏻‍♂️
+        <Play
+          size={60}
+          color="red"
+        />
         {
           playlist.map(item => <Media {...item} key={item.id}/>)
         }
-        <Media/>
       </div>
     )
 }
