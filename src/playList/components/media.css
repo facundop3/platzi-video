@@ -1,8 +1,23 @@
-.Media {
+.Media{
   cursor: pointer;
-  margin-right: 15px;
-  display: inline-block;
+  padding: .2em;
+  font-size: 14;
+  color: "#44546b";
   width: 260px;
   vertical-align: top;
+  transition: .3s;
   text-align: center;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2), 0 2px 7px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 1px;
+  display: inline-block;
+  background: white;
+}
+
+.Media:hover{
+  transform: scale(1.01);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  z-index: 2;
+}
+hr{
+  width: 70%;
 }

@@ -1,37 +1,41 @@
-import React, {Component} from 'react'
+import React from 'react'
+const {PureComponent} = React
 import './media.css'
-import PropTypes from 'prop-types' 
+import PropTypes from 'prop-types'
 
-
-class Media extends Component {
-  state = {
-    author: this.props.author
+class Media extends PureComponent {
+  animateCheese = ()=>{
+    const $authorH1 = document.getElementById('author')
+    $authorH1.animate([
+       { transform: "scale(1) rotate(0)"},
+       { transform: "scale(1.5) rotate(-90deg)"},
+       { transform: "scale(3) rotate(360deg)"}
+    ],{
+      duration:1500,
+      fill: 'forwards'
+    } )
   }
-  handleClick = () =>{
-    console.log(this.state.author)
-    this.setState({
-      author: "twitter: @facup3"
-    })
-  }
-  render () {
+  render(){
+    const {title, cover, author} = this.props
     return (
-      <div className="Media" onClick={this.handleClick}>
+      <div className="Media" >
         <div>
           <img
-            src={this.props.cover}
-            alt=""
-            width={260}
-            heigth={160}
+          src={cover}
+          alt=""
+          width={260}
+          height={160}
           />
-          <h3>{this.props.title}</h3>
-          <p>{this.state.author}</p>
+          <h3>{title}</h3>
+          <p id="author">{author}</p>
         </div>
       </div>
     )
   }
 }
-Media.propTypes = {
-  cover: PropTypes.string.isRequired,
+
+Media.propTypes= {
+  cover: PropTypes.string,
   title: PropTypes.string.isRequired,
   author: PropTypes.string.isRequired,
   type: PropTypes.oneOf(['video', 'audio']).isRequired
