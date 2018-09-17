@@ -1,3 +1,7 @@
 .categories{
   padding: 1em;
+  display: flex;
+  flex-basis: 85%;
+  flex-direction: column;
+  max-width: 85%;
 }

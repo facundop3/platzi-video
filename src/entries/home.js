@@ -9,9 +9,9 @@ import data from '../api.json'
 // render(
 //   que renderear, dondeRenderear
 // )
-const $container = document.getElementById('app')
+const $home = document.getElementById('home-container')
 render(
   <div>
     <Home data={data}/>
   </div>
-, $container)
+, $home)

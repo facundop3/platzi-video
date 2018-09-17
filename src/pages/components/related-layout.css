@@ -1,4 +1,6 @@
 .RealatedSideBar{
-  width: 250px;
+  top:0;
+  flex-grow: 1;
+  position: sticky;
   background: #161b2e;
 }
