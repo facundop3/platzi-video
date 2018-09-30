@@ -2,9 +2,9 @@ import React from 'react'
 import './modal.css'
 function Modal (props) {
   return(
-    <div className="modal">
-      this is our modal 🧙🏼‍♂️
+    <div className="Modal">
       {props.children}
+      <button className="Modal-close-button Modal-close" onClick={props.handleClick}/>
     </div>
   )
 }

@@ -4,21 +4,16 @@ import './media.css'
 import PropTypes from 'prop-types'
 
 class Media extends PureComponent {
-  animateCheese = ()=>{
-    const $authorH1 = document.getElementById('author')
-    $authorH1.animate([
-       { transform: "scale(1) rotate(0)"},
-       { transform: "scale(1.5) rotate(-90deg)"},
-       { transform: "scale(3) rotate(360deg)"}
-    ],{
-      duration:1500,
-      fill: 'forwards'
-    } )
+  handleClick = () =>{
+    this.props.openModal(this.props)
   }
   render(){
     const {title, cover, author} = this.props
     return (
-      <div className="Media" >
+      <div 
+        className="Media" 
+        onClick={this.handleClick}
+      >
         <div>
           <img
           src={cover}
