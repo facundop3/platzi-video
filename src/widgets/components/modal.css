@@ -1,7 +1,50 @@
-.modal{
+.Modal {
+  max-width: 768px;
+  height: auto;
+  width: 100%;
+  margin: 0 auto;
   position: fixed;
-  align-items: center;
-  justify-content: center;
-  z-index: 4;
+  left: 0;
+  right: 0;
+  top: 100px;
+  background:  white;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(0,0,0,.4);
+  z-index: 3;
+  /* display: flex; */
+
+}
+.Modal-close {
+  position: absolute;
+  right: 5px;
+  top: 15px;
+  border: none;
+  color: white;
+  cursor: pointer;
+  background: transparent;
+  outline: 0;
+}
+
+.Modal-close:after {
+  content: "X";
+  border-radius: 50%;
+  font-weight: bold;
+  font-size: 30px;
   background: red;
+  border: none;
+  /* margin: 5px; */
+  padding: .5em;
+  border-radius: 9px;
+  cursor: pointer;
+  box-shadow: inset 0 -0.2em rgba(0,0,0 , 0.3);
+  transition: 1s;
+  color: aliceblue;
+  font-family: Arial;
+  font-size: 16px;
+  will-change: transform;
+}
+
+.Modal-close:active{
+  transform: scale(0.9);
 }
