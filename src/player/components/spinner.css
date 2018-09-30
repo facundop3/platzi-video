@@ -1,0 +1,21 @@
+.Spinner{
+  color: greenyellow;
+  animation-name: SpinnerAnimation;
+  animation-duration: 1.5s;
+  will-change: transform;
+  animation-iteration-count: infinite;
+  justify-content: center;
+  width: 100px;
+}
+
+@keyframes SpinnerAnimation{
+  from{
+    transform: rotateX(0) scale(1);
+  }
+  50%{
+    transform: rotateX(180) scale(3);
+  }
+  to{
+    transform: rotate(360deg) scale(1);
+  }
+}
