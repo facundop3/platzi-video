@@ -1,23 +1,27 @@
 import React from 'react'
 import {render} from 'react-dom'
 import Home from '../pages/containers/home'
-import data from '../api.json'
-import normalizedData from '../schemas'
+// import data from '../schemas'
 import {createStore} from 'redux'
 import {Provider} from 'react-redux'
-import reducer from '../reducers/data'
+import reducer from '../reducers'
+import {Map as map} from 'immutable'
 
-console.log(normalizedData)
-const initialState = {
-  data:{
-    ...data,
-  },
-  search: []
-}
+// const initialState = {
+//   data:{
+//     entities: data.entities,
+//     categories: data.result.categories,
+//     search: []
+//   },
+//   modal:{
+//     visibility: false,
+//     mediaId: null
+//   }
+// }
 
 const store = createStore(
   reducer,
-  initialState,
+  map(),
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 )
 
