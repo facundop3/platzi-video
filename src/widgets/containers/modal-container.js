@@ -1,5 +1,4 @@
-import React from 'react'
-const {Component} = React
+import React, {Component} from 'react'
 import {createPortal} from 'react-dom'
 
 class ModalContainer extends Component {

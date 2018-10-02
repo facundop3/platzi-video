@@ -7,10 +7,9 @@ import Modal from '../../widgets/components/modal'
 import HandleError from '../../error/containers/handle-error'
 import VideoPlayer from '../../player/containers/video-container'
 import {connect} from 'react-redux'
+import {List as list} from 'immutable'
 class Home extends Component {
-  state= {
-    modalVisible: false
-  }
+
   handleOpenModal = media =>{
     this.setState({
       modalVisible: true,
@@ -33,14 +32,13 @@ class Home extends Component {
           search={this.props.search}
           />
           {
-            this.state.modalVisible &&
+            this.props.modal.get('visibility') &&
             <ModalContainer>
               <Modal handleClick={this.handleCloseModal}>
                 <h1>Hey !</h1>
                 <VideoPlayer
                   autoPlay
-                  src={this.state.media.src}
-                  title={this.state.media.title}
+                  id={this.props.modal.get('mediaId')}
                 />
               </Modal>
             </ModalContainer>
@@ -51,15 +49,23 @@ class Home extends Component {
   }
   }
 function mapStateToProps(state, props) {
-  const categories = state.get('data').get('categories').map(categoryId =>(
-     state.get('data').get('entities').get('categories').get(categoryId)
-     )
-  )
-
-
+  const categories = state.get('data').get('categories').map(categoryId =>{
+    return state.get('data').get('entities').get('categories').get(categoryId)
+  })
+  
+  let searchresults = list();
+  const search = state.get('data').get('search');
+  console.log('Search', search)
+  if(search){
+    const mediaList =  state.get('data').get('entities').get('media')
+    searchresults = mediaList.filter(item => {
+        return `${item.get('title')} ${item.get('author')}`.toLowerCase().includes(search.toLowerCase())
+      }).toList()
+  }
   return {
     categories,
-    search: state.get('data').get('search')
+    search : searchresults,
+    modal: state.get('modal')
   }
 }
 export default connect(mapStateToProps)(Home)

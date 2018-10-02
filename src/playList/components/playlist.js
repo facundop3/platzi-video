@@ -4,6 +4,7 @@ import './playlist.css'
 
 function Playlist(props) {
   const { playlist } = props
+  console.log(playlist)
   return (
     <div>
       <div className="media-list">

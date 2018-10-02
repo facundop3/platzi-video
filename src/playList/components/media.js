@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 
 class Media extends PureComponent {
   handleClick = () =>{
-    this.props.openModal(this.props)
+    this.props.openModal(this.props.id)
   }
   render(){
     const {title, cover, author} = this.props
